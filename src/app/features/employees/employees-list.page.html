@@ -1,0 +1,69 @@
+<section class="page-shell">
+  <header class="section-header">
+    <div>
+      <h1>Employee Directory</h1>
+      <p>Search, review, and maintain employee records.</p>
+    </div>
+    <a class="btn primary" routerLink="/employees/new">Add Employee</a>
+  </header>
+
+  <form class="search-card" [formGroup]="searchForm" (ngSubmit)="search()">
+    <label for="department">Department</label>
+    <input id="department" formControlName="department" placeholder="e.g. Engineering" />
+
+    <label for="position">Position</label>
+    <input id="position" formControlName="position" placeholder="e.g. Developer" />
+
+    <div class="action-row">
+      <button class="btn primary" type="submit">Search</button>
+      <button class="btn ghost" type="button" (click)="clearSearch()">Clear</button>
+    </div>
+  </form>
+
+  @if (errorMessage()) {
+    <p class="error-banner" role="alert">{{ errorMessage() }}</p>
+  }
+
+  @if (loading()) {
+    <p class="helper">Loading employees...</p>
+  } @else {
+    @if (employees().length === 0) {
+      <p class="helper">No employees found. Try a different filter.</p>
+    } @else {
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Position</th>
+              <th>Salary</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (employee of employees(); track employee.id) {
+              <tr>
+                <td>
+                  <img [src]="employee.picture || 'https://via.placeholder.com/48x48?text=NA'" [alt]="employee | fullName" />
+                </td>
+                <td>{{ employee | fullName }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.department }}</td>
+                <td>{{ employee.position }}</td>
+                <td>${{ employee.salary }}</td>
+                <td class="actions-cell">
+                  <a class="btn small" [routerLink]="['/employees', employee.id]">View</a>
+                  <a class="btn small" [routerLink]="['/employees', employee.id, 'edit']">Update</a>
+                  <button class="btn small danger" type="button" (click)="deleteEmployee(employee.id)">Delete</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  }
+</section>

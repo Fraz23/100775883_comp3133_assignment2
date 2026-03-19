@@ -1,0 +1,42 @@
+<section class="auth-shell">
+  <article class="auth-card" appCardElevate>
+    <h1>Create Account</h1>
+    <p class="helper">Register to access employee management.</p>
+
+    @if (errorMessage()) {
+      <p class="error-banner" role="alert">{{ errorMessage() }}</p>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="username">Username</label>
+      <input id="username" type="text" formControlName="username" />
+      @if (form.controls.username.touched && form.controls.username.invalid) {
+        <small class="error-text">Username must be at least 3 characters.</small>
+      }
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      @if (form.controls.email.touched && form.controls.email.invalid) {
+        <small class="error-text">Please enter a valid email address.</small>
+      }
+
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      @if (form.controls.password.touched && form.controls.password.invalid) {
+        <small class="error-text">Password must be at least 6 characters.</small>
+      }
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+      @if (form.controls.confirmPassword.touched && form.controls.confirmPassword.invalid) {
+        <small class="error-text">Please confirm your password.</small>
+      }
+
+      <button type="submit" [disabled]="isSubmitting()">
+        {{ isSubmitting() ? 'Creating...' : 'Signup' }}
+      </button>
+    </form>
+
+    <p class="helper">Already have an account? <a routerLink="/login">Login here</a></p>
+  </article>
+</section>

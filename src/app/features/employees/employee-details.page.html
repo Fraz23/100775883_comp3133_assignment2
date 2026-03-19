@@ -1,0 +1,35 @@
+<section class="page-shell">
+  @if (loading()) {
+    <p class="helper">Loading employee details...</p>
+  } @else if (errorMessage()) {
+    <p class="error-banner" role="alert">{{ errorMessage() }}</p>
+  } @else if (employee(); as current) {
+    <header class="section-header">
+      <div>
+        <h1>{{ current | fullName }}</h1>
+        <p>Employee profile details</p>
+      </div>
+      <div class="action-row">
+        <a class="btn ghost" routerLink="/employees">Back</a>
+        <a class="btn primary" [routerLink]="['/employees', current.id, 'edit']">Update</a>
+      </div>
+    </header>
+
+    <article class="details-card">
+      <img class="details-image" [src]="current.picture || 'https://via.placeholder.com/120x120?text=Photo'" [alt]="current | fullName" />
+      <dl>
+        <dt>Email</dt>
+        <dd>{{ current.email }}</dd>
+
+        <dt>Department</dt>
+        <dd>{{ current.department }}</dd>
+
+        <dt>Position</dt>
+        <dd>{{ current.position }}</dd>
+
+        <dt>Salary</dt>
+        <dd>${{ current.salary }}</dd>
+      </dl>
+    </article>
+  }
+</section>

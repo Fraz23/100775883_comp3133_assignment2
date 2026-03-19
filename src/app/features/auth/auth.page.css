@@ -1,0 +1,80 @@
+.auth-shell {
+  min-height: calc(100vh - 4.5rem);
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.auth-card {
+  width: min(100%, 460px);
+  background: #ffffff;
+  border: 1px solid #d3dbe8;
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  color: #12264f;
+}
+
+.helper {
+  color: #4f607f;
+}
+
+form {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+label {
+  color: #21325b;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+input {
+  border: 1px solid #b7c4dc;
+  border-radius: 10px;
+  min-height: 2.7rem;
+  padding: 0 0.8rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2a5fb8;
+  box-shadow: 0 0 0 3px rgba(42, 95, 184, 0.18);
+}
+
+button {
+  margin-top: 0.8rem;
+  min-height: 2.9rem;
+  border-radius: 999px;
+  border: 0;
+  background: linear-gradient(135deg, #2a5fb8, #4f7dd1);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #b72d2d;
+}
+
+.error-banner {
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  background: #ffe9e9;
+  color: #9b1f1f;
+}
+
+a {
+  color: #214f9f;
+  font-weight: 600;
+}

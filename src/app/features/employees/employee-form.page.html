@@ -1,0 +1,66 @@
+<section class="page-shell">
+  <header class="section-header">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>Enter employee information and keep records up to date.</p>
+    </div>
+  </header>
+
+  @if (pageLoading()) {
+    <p class="helper">Loading employee details...</p>
+  } @else {
+    @if (errorMessage()) {
+      <p class="error-banner" role="alert">{{ errorMessage() }}</p>
+    }
+
+    <form class="form-card" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" formControlName="firstName" />
+      @if (form.controls.firstName.touched && form.controls.firstName.invalid) {
+        <small class="error-text">First name is required.</small>
+      }
+
+      <label for="lastName">Last Name</label>
+      <input id="lastName" type="text" formControlName="lastName" />
+      @if (form.controls.lastName.touched && form.controls.lastName.invalid) {
+        <small class="error-text">Last name is required.</small>
+      }
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      @if (form.controls.email.touched && form.controls.email.invalid) {
+        <small class="error-text">Please enter a valid email address.</small>
+      }
+
+      <label for="department">Department</label>
+      <input id="department" type="text" formControlName="department" />
+      @if (form.controls.department.touched && form.controls.department.invalid) {
+        <small class="error-text">Department is required.</small>
+      }
+
+      <label for="position">Position</label>
+      <input id="position" type="text" formControlName="position" />
+      @if (form.controls.position.touched && form.controls.position.invalid) {
+        <small class="error-text">Position is required.</small>
+      }
+
+      <label for="salary">Salary</label>
+      <input id="salary" type="number" formControlName="salary" />
+      @if (form.controls.salary.touched && form.controls.salary.invalid) {
+        <small class="error-text">Salary must be greater than 0.</small>
+      }
+
+      <label for="picture">Profile Picture</label>
+      <input id="picture" type="file" accept="image/*" (change)="onFileSelected($event)" />
+
+      @if (imagePreview()) {
+        <img class="preview-image" [src]="imagePreview()" alt="Employee profile preview" />
+      }
+
+      <div class="action-row">
+        <button class="btn primary" type="submit">{{ submitLabel() }}</button>
+        <button class="btn ghost" type="button" routerLink="/employees">Cancel</button>
+      </div>
+    </form>
+  }
+</section>

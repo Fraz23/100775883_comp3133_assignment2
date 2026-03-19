@@ -1,0 +1,30 @@
+<section class="auth-shell">
+  <article class="auth-card" appCardElevate>
+    <h1>Welcome Back</h1>
+    <p class="helper">Sign in to manage employee records.</p>
+
+    @if (errorMessage()) {
+      <p class="error-banner" role="alert">{{ errorMessage() }}</p>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      @if (form.controls.email.touched && form.controls.email.invalid) {
+        <small class="error-text">Please enter a valid email address.</small>
+      }
+
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      @if (form.controls.password.touched && form.controls.password.invalid) {
+        <small class="error-text">Password must be at least 6 characters.</small>
+      }
+
+      <button type="submit" [disabled]="isSubmitting()">
+        {{ isSubmitting() ? 'Signing In...' : 'Login' }}
+      </button>
+    </form>
+
+    <p class="helper">Need an account? <a routerLink="/signup">Create one</a></p>
+  </article>
+</section>
