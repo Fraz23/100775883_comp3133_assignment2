@@ -15,7 +15,7 @@ This is a complete full-stack application for managing employees with authentica
 ## 🚀 Live Deployment
 
 - **Backend (GraphQL):** https://one00775883-comp3133-assignment2.onrender.com/graphql
-- **Frontend (Web App):** [Add Vercel URL after deployment]
+- **Frontend (Web App):** https://100775883-comp3133-assignment2.vercel.app
 
 ---
 
