@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/studentID_comp3133_assignment2",
+  "framework": "angular",
+  "installCommand": "npm install"
+}
