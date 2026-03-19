@@ -2,6 +2,15 @@
 
 :root {
   color-scheme: light;
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --surface-2: #f8fbff;
+  --text: #152745;
+  --text-muted: #4c607f;
+  --border: #d7e0ef;
+  --primary: #2659ae;
+  --primary-2: #4b77c7;
+  --danger: #b42929;
 }
 
 * {
@@ -11,12 +20,20 @@
 html,
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: radial-gradient(circle at 0% 0%, #eef4ff 0%, #f8fbff 40%, #f5f8fd 100%);
-  color: #142849;
+  font-family: 'Segoe UI', 'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(900px 420px at 0% -10%, #e6efff 0%, transparent 60%),
+    radial-gradient(700px 320px at 100% 0%, #edf4ff 0%, transparent 60%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.4;
 }
 
 button,
 input {
   font: inherit;
+}
+
+a {
+  color: var(--primary);
 }
