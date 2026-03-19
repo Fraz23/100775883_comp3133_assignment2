@@ -1,6 +1,12 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/studentID_comp3133_assignment2",
+  "outputDirectory": "dist/studentID_comp3133_assignment2/browser",
   "framework": "angular",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
