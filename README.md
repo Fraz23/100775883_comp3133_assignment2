@@ -1,6 +1,62 @@
-# StudentIDComp3133Assignment2
+# COMP3133 Assignment 2 - Full-Stack Employee Management App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+**Student ID:** 100775883
+
+This is a complete full-stack application for managing employees with authentication, CRUD operations, and search functionality.
+
+**Technology Stack:**
+- **Frontend:** Angular 21 (standalone components, lazy routing, reactive forms)
+- **Backend:** Node.js + Express + Apollo GraphQL v4
+- **Database:** MongoDB + Mongoose
+- **Authentication:** JWT with bcryptjs password hashing
+
+---
+
+## 🚀 Live Deployment
+
+- **Backend (GraphQL):** https://one00775883-comp3133-assignment2.onrender.com/graphql
+- **Frontend (Web App):** [Add Vercel URL after deployment]
+
+---
+
+## 📋 Features
+
+✅ User Authentication (Signup/Login with JWT)  
+✅ Employee CRUD Operations (Create, Read, Update, Delete)  
+✅ Search by Department & Position  
+✅ Image Upload with Preview  
+✅ Form Validation & Error Handling  
+✅ Protected Routes with Auth Guard  
+✅ MongoDB Database with Mongoose  
+
+---
+
+## 🏃 Quick Start (Local Development)
+
+### Backend Setup
+```bash
+cd backend
+npm install
+npm start
+# Backend runs at http://localhost:4000/graphql
+```
+
+### Frontend Setup
+```bash
+npm install
+npm start
+# Frontend runs at http://localhost:4200
+```
+
+### Database
+MongoDB should be running locally at `mongodb://127.0.0.1:27017/comp3133_assignment2`
+
+### Seed Sample Data
+```bash
+node backend/scripts/seed-employees.js
+```
+
+---
 
 ## Development server
 
