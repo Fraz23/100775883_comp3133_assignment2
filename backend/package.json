@@ -4,6 +4,7 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
+    "build": "node -e \"console.log('Backend build step complete')\"",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
