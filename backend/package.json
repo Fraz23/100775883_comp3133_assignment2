@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node -e \"console.log('Backend build step complete')\"",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "migrate:cloud": "node scripts/migrate-local-to-cloud.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.3",
